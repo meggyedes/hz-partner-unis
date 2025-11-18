@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HZ University Partner Universities Portal</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/flag-icons/css/flag-icons.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "hz-blue": "#003366",
+              "hz-orange": "#FF6B35",
+              "hz-light-blue": "#E6F3FF",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-hz-blue text-white shadow-lg">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-university text-3xl text-hz-orange"></i>
+            <div>
+              <h1 class="text-2xl font-bold">
+                HZ University of Applied Sciences
+              </h1>
+              <p class="text-hz-light-blue">
+                Global Partner Universities Portal
+              </p>
+            </div>
+          </div>
+          <nav class="hidden md:flex space-x-6">
+            <a
+              href="index.html"
+              class="hover:text-hz-orange transition-colors font-semibold"
+              >Home</a
+            >
+            <a
+              href="ict-partner-universities.html"
+              class="hover:text-hz-orange transition-colors"
+              >ICT Programs</a
+            >
+            <a
+              href="international-business-partners.html"
+              class="hover:text-hz-orange transition-colors"
+              >International Business</a
+            >
+            <a href="#contact" class="hover:text-hz-orange transition-colors"
+              >Contact</a
+            >
+          </nav>
+          <!-- Mobile menu button -->
+          <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-hz-blue border-t border-gray-600"
+      >
+        <div class="container mx-auto px-4 py-4">
+          <nav class="flex flex-col space-y-3">
+            <a
+              href="index.html"
+              class="hover:text-hz-orange transition-colors font-semibold"
+              >Home</a
+            >
+            <a
+              href="ict-partner-universities.html"
+              class="hover:text-hz-orange transition-colors"
+              >ICT Programs</a
+            >
+            <a
+              href="international-business-partners.html"
+              class="hover:text-hz-orange transition-colors"
+              >International Business</a
+            >
+            <a href="#contact" class="hover:text-hz-orange transition-colors"
+              >Contact</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-br from-hz-blue via-blue-700 to-hz-orange text-white py-20"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-5xl font-bold mb-6">
+          Discover Your Study Abroad Destination
+        </h2>
+        <p class="text-xl mb-12 max-w-4xl mx-auto leading-relaxed">
+          Explore HZ University's extensive network of partner universities
+          worldwide. Choose from top-tier institutions offering excellent
+          programs in ICT and International Business.
+        </p>
+
+        <!-- Program Selection Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- ICT Programs Card -->
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+          >
+            <div class="text-center">
+              <div
+                class="bg-hz-orange rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-laptop-code text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">ICT & Technology Programs</h3>
+              <p class="text-lg mb-6 opacity-90">
+                Discover universities with cutting-edge Computer Science,
+                Information Technology, and Software Engineering programs across
+                the globe.
+              </p>
+              <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >Computer Science</span
+                >
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >Software Engineering</span
+                >
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >Cybersecurity</span
+                >
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >AI & Machine Learning</span
+                >
+              </div>
+              <a
+                href="ict-partner-universities.html"
+                class="inline-block bg-hz-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+              >
+                <i class="fas fa-arrow-right mr-2"></i>Explore ICT Programs
+              </a>
+            </div>
+          </div>
+
+          <!-- International Business Card -->
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+          >
+            <div class="text-center">
+              <div
+                class="bg-hz-orange rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-globe-americas text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">
+                International Business Programs
+              </h3>
+              <p class="text-lg mb-6 opacity-90">
+                Explore prestigious business schools offering International
+                Business, Management, and Economics programs in diverse global
+                markets.
+              </p>
+              <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >International Management</span
+                >
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >Global Business</span
+                >
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >Economics</span
+                >
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm"
+                  >Entrepreneurship</span
+                >
+              </div>
+              <a
+                href="international-business-partners.html"
+                class="inline-block bg-hz-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+              >
+                <i class="fas fa-arrow-right mr-2"></i>Explore Business Programs
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center text-hz-blue mb-12">
+          Our Global Network
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="bg-hz-light-blue rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-university text-3xl text-hz-blue"></i>
+            </div>
+            <h4 class="text-3xl font-bold text-hz-blue mb-2">100+</h4>
+            <p class="text-gray-600">Partner Universities</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-hz-light-blue rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-globe text-3xl text-hz-blue"></i>
+            </div>
+            <h4 class="text-3xl font-bold text-hz-blue mb-2">40+</h4>
+            <p class="text-gray-600">Countries</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-hz-light-blue rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-graduation-cap text-3xl text-hz-blue"></i>
+            </div>
+            <h4 class="text-3xl font-bold text-hz-blue mb-2">1000+</h4>
+            <p class="text-gray-600">Exchange Students</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-hz-light-blue rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-award text-3xl text-hz-blue"></i>
+            </div>
+            <h4 class="text-3xl font-bold text-hz-blue mb-2">Top 3</h4>
+            <p class="text-gray-600">Dutch Universities</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About HZ Section -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h3 class="text-3xl font-bold text-hz-blue mb-8">
+            About HZ University of Applied Sciences
+          </h3>
+          <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+            Located in the beautiful province of Zeeland in the Netherlands, HZ
+            University of Applied Sciences has been consistently ranked in the
+            top three Dutch multidisciplinary universities of applied sciences
+            since 2011. With around 4,800 students, we focus on practice-based
+            education and research, maintaining close collaborations with the
+            business world and research centers.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <i class="fas fa-microscope text-3xl text-hz-orange mb-4"></i>
+              <h4 class="text-xl font-bold text-hz-blue mb-2">
+                Applied Research
+              </h4>
+              <p class="text-gray-600">
+                Cutting-edge research in water, energy, vitality, food, and
+                biobased solutions.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <i class="fas fa-handshake text-3xl text-hz-orange mb-4"></i>
+              <h4 class="text-xl font-bold text-hz-blue mb-2">
+                Industry Partnerships
+              </h4>
+              <p class="text-gray-600">
+                Strong connections with businesses and research centers for
+                practical learning.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <i class="fas fa-globe-europe text-3xl text-hz-orange mb-4"></i>
+              <h4 class="text-xl font-bold text-hz-blue mb-2">
+                International Focus
+              </h4>
+              <p class="text-gray-600">
+                Global network of partner universities for exchange and study
+                abroad programs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-hz-blue text-white py-12" id="contact">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+            <p class="mb-2">
+              <i class="fas fa-map-marker-alt mr-2"></i>Edisonweg 4, 4382 NW
+              Vlissingen, Netherlands
+            </p>
+            <p class="mb-2">
+              <i class="fas fa-phone mr-2"></i>+31 (0)118 489 000
+            </p>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i>info@hz.nl</p>
+            <p><i class="fas fa-globe mr-2"></i>www.hz.nl</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="ict-partner-universities.html"
+                  class="hover:text-hz-orange transition-colors"
+                  >ICT Partner Universities</a
+                >
+              </li>
+              <li>
+                <a
+                  href="international-business-partners.html"
+                  class="hover:text-hz-orange transition-colors"
+                  >Business Partner Universities</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://hz.nl/en/study-programmes"
+                  class="hover:text-hz-orange transition-colors"
+                  >Study Programmes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://hz.nl/en/study-information/studying-at-hz/international-focus"
+                  class="hover:text-hz-orange transition-colors"
+                  >International Focus</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="https://www.facebook.com/HZUniversityofAppliedSciences"
+                class="text-2xl hover:text-hz-orange transition-colors"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://twitter.com/hzeeland"
+                class="text-2xl hover:text-hz-orange transition-colors"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/school/hz-university-of-applied-sciences/"
+                class="text-2xl hover:text-hz-orange transition-colors"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/hzuniversityofappliedsciences/"
+                class="text-2xl hover:text-hz-orange transition-colors"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+            <p class="text-sm opacity-75">
+              Stay connected with HZ University for the latest updates and
+              opportunities.
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+          <p>
+            &copy; 2025 HZ University of Applied Sciences. All rights reserved.
+          </p>
+          <p class="text-sm opacity-75 mt-2">
+            This portal showcases our global partner universities for student
+            exchange programs.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Smooth scrolling and animations -->
+    <script>
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections for animation
+      document.querySelectorAll("section").forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(20px)";
+        section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(section);
+      });
+
+      // Make the first section visible immediately
+      document.querySelector("section").style.opacity = "1";
+      document.querySelector("section").style.transform = "translateY(0)";
+
+      // Mobile menu toggle function
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>

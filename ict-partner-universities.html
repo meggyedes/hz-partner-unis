@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HZ University - ICT Partner Universities</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/flag-icons/css/flag-icons.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "hz-blue": "#003366",
+              "hz-orange": "#FF6B35",
+              "hz-light-blue": "#E6F3FF",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-hz-blue text-white shadow-lg">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-university text-3xl text-hz-orange"></i>
+            <div>
+              <h1 class="text-2xl font-bold">
+                HZ University of Applied Sciences
+              </h1>
+              <p class="text-hz-light-blue">
+                Partner Universities - ICT Programs
+              </p>
+            </div>
+          </div>
+          <nav class="hidden md:flex space-x-6">
+            <a href="index.html" class="hover:text-hz-orange transition-colors"
+              >Home</a
+            >
+            <a
+              href="international-business-partners.html"
+              class="hover:text-hz-orange transition-colors"
+              >International Business</a
+            >
+            <a href="#contact" class="hover:text-hz-orange transition-colors"
+              >Contact</a
+            >
+          </nav>
+          <!-- Mobile menu button -->
+          <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-hz-blue border-t border-gray-600"
+      >
+        <div class="container mx-auto px-4 py-4">
+          <nav class="flex flex-col space-y-3">
+            <a href="index.html" class="hover:text-hz-orange transition-colors"
+              >Home</a
+            >
+            <a
+              href="international-business-partners.html"
+              class="hover:text-hz-orange transition-colors"
+              >International Business</a
+            >
+            <a href="#contact" class="hover:text-hz-orange transition-colors"
+              >Contact</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-hz-blue to-blue-800 text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-4">ICT Partner Universities</h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto">
+          Discover our global network of partner universities offering excellent
+          ICT, Computer Science, and Information Technology programs for
+          exchange students.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <div class="bg-white/20 rounded-lg p-4">
+            <i class="fas fa-laptop-code text-3xl text-hz-orange mb-2"></i>
+            <p class="font-semibold">50+ Universities</p>
+          </div>
+          <div class="bg-white/20 rounded-lg p-4">
+            <i class="fas fa-globe text-3xl text-hz-orange mb-2"></i>
+            <p class="font-semibold">30+ Countries</p>
+          </div>
+          <div class="bg-white/20 rounded-lg p-4">
+            <i class="fas fa-graduation-cap text-3xl text-hz-orange mb-2"></i>
+            <p class="font-semibold">ICT Excellence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="py-8 bg-white shadow-sm">
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row gap-4 items-center justify-between"
+        >
+          <div class="flex-1 max-w-md">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search universities..."
+                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hz-blue focus:border-transparent"
+              />
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <select
+              id="regionFilter"
+              class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hz-blue"
+            >
+              <option value="">All Regions</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="americas">Americas</option>
+              <option value="oceania">Oceania</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Universities Grid -->
+    <main class="container mx-auto px-4 py-12">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        id="universitiesGrid"
+      >
+        <!-- Germany - Technical Universities -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-500"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-red-500 via-yellow-400 to-black h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-de fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">GERMANY</span>
+            </div>
+            <i class="fas fa-flag text-4xl text-white"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              German Technical Universities
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Frankfurt University of
+                Applied Sciences
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Hochschule Bremen
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Technische Hochschule
+                Deggendorf
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Computer Science</span
+              >
+              <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                >Software Engineering</span
+              >
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs"
+                >IT Management</span
+              >
+            </div>
+            <a
+              href="details/german-tech-universities.html"
+              class="w-full bg-hz-blue text-white py-2 rounded hover:bg-blue-800 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Finland - Technology Focus -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-blue-600"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-blue-600 to-white h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-fi fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">FINLAND</span>
+            </div>
+            <i class="fas fa-snowflake text-4xl text-blue-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Finnish Tech Universities
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Metropolia University,
+                Helsinki
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>SAMK University, Pori
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >ICT</span
+              >
+              <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs"
+                >Game Development</span
+              >
+              <span class="bg-indigo-500 text-white px-2 py-1 rounded text-xs"
+                >Cybersecurity</span
+              >
+            </div>
+            <a
+              href="details/finnish-tech-universities.html"
+              class="w-full bg-hz-blue text-white py-2 rounded hover:bg-blue-800 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- South Korea - Tech Innovation -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-600"
+          data-region="asia"
+        >
+          <div
+            class="bg-gradient-to-r from-red-600 via-white to-blue-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-kr fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">SOUTH KOREA</span>
+            </div>
+            <i class="fas fa-microchip text-4xl text-red-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Korean Tech Leaders
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Korea University, Seoul &
+                Sejong
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Konkuk University, Seoul
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Chung-Ang University,
+                Seoul
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >AI & Machine Learning</span
+              >
+              <span class="bg-red-500 text-white px-2 py-1 rounded text-xs"
+                >Robotics</span
+              >
+              <span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs"
+                >Mobile Tech</span
+              >
+            </div>
+            <a
+              href="details/korean-tech-leaders.html"
+              class="w-full bg-hz-blue text-white py-2 rounded hover:bg-blue-800 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Canada - Innovation Hubs -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-600"
+          data-region="americas"
+        >
+          <div
+            class="bg-gradient-to-r from-red-600 to-red-800 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-ca fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">CANADA</span>
+            </div>
+            <i class="fas fa-maple-leaf text-4xl text-white"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Canadian Innovation Centers
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>University of Waterloo,
+                Ontario
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Capilano University,
+                Vancouver BC
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Fanshawe College, London
+                ON
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Software Development</span
+              >
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs"
+                >Data Science</span
+              >
+              <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                >Cloud Computing</span
+              >
+            </div>
+            <a
+              href="details/canadian-innovation-centers.html"
+              class="w-full bg-hz-blue text-white py-2 rounded hover:bg-blue-800 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- China - Tech Powerhouses -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-700"
+          data-region="asia"
+        >
+          <div
+            class="bg-gradient-to-r from-red-700 to-yellow-400 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-cn fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">CHINA</span>
+            </div>
+            <i class="fas fa-dragon text-4xl text-yellow-400"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Chinese Tech Universities
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Shanghai Ocean University
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Jinan University,
+                Guangzhou
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Information Systems</span
+              >
+              <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs"
+                >Digital Innovation</span
+              >
+              <span class="bg-teal-500 text-white px-2 py-1 rounded text-xs"
+                >E-commerce Tech</span
+              >
+            </div>
+            <a
+              href="details/chinese-tech-powerhouses.html"
+              class="w-full bg-hz-blue text-white py-2 rounded hover:bg-blue-800 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- USA - Silicon Valley Connection -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-blue-700"
+          data-region="americas"
+        >
+          <div
+            class="bg-gradient-to-r from-blue-700 via-white to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-us fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">USA</span>
+            </div>
+            <i class="fas fa-star text-4xl text-blue-700"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              US Technology Universities
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Texas Christian
+                University, Fort Worth
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Bowling Green State
+                University, Ohio
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Western Kentucky
+                University
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Computer Engineering</span
+              >
+              <span class="bg-indigo-500 text-white px-2 py-1 rounded text-xs"
+                >Information Technology</span
+              >
+              <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs"
+                >Digital Media</span
+              >
+            </div>
+            <a
+              href="details/us-silicon-valley-connection.html"
+              class="w-full bg-hz-blue text-white py-2 rounded hover:bg-blue-800 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-hz-blue text-white py-12" id="contact">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+            <p class="mb-2">
+              <i class="fas fa-map-marker-alt mr-2"></i>Edisonweg 4, 4382 NW
+              Vlissingen
+            </p>
+            <p class="mb-2">
+              <i class="fas fa-phone mr-2"></i>+31 (0)118 489 000
+            </p>
+            <p><i class="fas fa-envelope mr-2"></i>info@hz.nl</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="index.html" class="hover:text-hz-orange">Home</a>
+              </li>
+              <li>
+                <a
+                  href="international-business-partners.html"
+                  class="hover:text-hz-orange"
+                  >International Business</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://hz.nl/en/study-programmes"
+                  class="hover:text-hz-orange"
+                  >Study Programmes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://hz.nl/en/study-information/studying-at-hz/international-focus"
+                  class="hover:text-hz-orange"
+                  >International Focus</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+          <p>
+            &copy; 2025 HZ University of Applied Sciences. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Search functionality
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const cards = document.querySelectorAll(".university-card");
+
+          cards.forEach((card) => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+
+      // Region filter
+      document
+        .getElementById("regionFilter")
+        .addEventListener("change", function (e) {
+          const selectedRegion = e.target.value;
+          const cards = document.querySelectorAll(".university-card");
+
+          cards.forEach((card) => {
+            if (
+              selectedRegion === "" ||
+              card.dataset.region === selectedRegion
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+
+      // Mobile menu toggle function
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>

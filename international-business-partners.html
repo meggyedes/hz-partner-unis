@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HZ University - International Business Partner Universities</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/flag-icons/css/flag-icons.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "hz-blue": "#003366",
+              "hz-orange": "#FF6B35",
+              "hz-light-blue": "#E6F3FF",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-hz-blue text-white shadow-lg">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-university text-3xl text-hz-orange"></i>
+            <div>
+              <h1 class="text-2xl font-bold">
+                HZ University of Applied Sciences
+              </h1>
+              <p class="text-hz-light-blue">
+                Partner Universities - International Business
+              </p>
+            </div>
+          </div>
+          <nav class="hidden md:flex space-x-6">
+            <a href="index.html" class="hover:text-hz-orange transition-colors"
+              >Home</a
+            >
+            <a
+              href="ict-partner-universities.html"
+              class="hover:text-hz-orange transition-colors"
+              >ICT Programs</a
+            >
+            <a href="#contact" class="hover:text-hz-orange transition-colors"
+              >Contact</a
+            >
+          </nav>
+          <!-- Mobile menu button -->
+          <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-hz-blue border-t border-gray-600"
+      >
+        <div class="container mx-auto px-4 py-4">
+          <nav class="flex flex-col space-y-3">
+            <a href="index.html" class="hover:text-hz-orange transition-colors"
+              >Home</a
+            >
+            <a
+              href="ict-partner-universities.html"
+              class="hover:text-hz-orange transition-colors"
+              >ICT Programs</a
+            >
+            <a href="#contact" class="hover:text-hz-orange transition-colors"
+              >Contact</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-hz-orange to-red-600 text-white py-16"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-4">
+          International Business Partner Universities
+        </h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto">
+          Explore our prestigious network of partner universities offering
+          world-class International Business, Management, and Economics programs
+          across the globe.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <div class="bg-white/20 rounded-lg p-4">
+            <i class="fas fa-chart-line text-3xl text-white mb-2"></i>
+            <p class="font-semibold">60+ Universities</p>
+          </div>
+          <div class="bg-white/20 rounded-lg p-4">
+            <i class="fas fa-handshake text-3xl text-white mb-2"></i>
+            <p class="font-semibold">Global Network</p>
+          </div>
+          <div class="bg-white/20 rounded-lg p-4">
+            <i class="fas fa-briefcase text-3xl text-white mb-2"></i>
+            <p class="font-semibold">Business Excellence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="py-8 bg-white shadow-sm">
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row gap-4 items-center justify-between"
+        >
+          <div class="flex-1 max-w-md">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search universities..."
+                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hz-orange focus:border-transparent"
+              />
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <select
+              id="regionFilter"
+              class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hz-orange"
+            >
+              <option value="">All Regions</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="americas">Americas</option>
+              <option value="oceania">Oceania</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Universities Grid -->
+    <main class="container mx-auto px-4 py-12">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        id="universitiesGrid"
+      >
+        <!-- France - Business Schools -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-blue-600"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-blue-600 via-white to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-fr fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">FRANCE</span>
+            </div>
+            <i class="fas fa-wine-glass text-4xl text-blue-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              French Business Excellence
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>EDHEC Business School,
+                Lille & Nice
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>École de Management de
+                Normandie, Le Havre
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>IPAG École Supérieure de
+                Commerce, Paris
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >International Management</span
+              >
+              <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                >Finance</span
+              >
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs"
+                >Marketing</span
+              >
+            </div>
+            <a
+              href="details/french-business-excellence.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Spain - Business Universities -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-600"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-red-600 via-yellow-400 to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-es fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">SPAIN</span>
+            </div>
+            <i class="fas fa-sun text-4xl text-yellow-400"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Spanish Business Leaders
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Universidad de Sevilla
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Universidad Pablo de
+                Olavide, Sevilla
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Universidad Francisco de
+                Vitoria, Madrid
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >International Business</span
+              >
+              <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs"
+                >Economics</span
+              >
+              <span class="bg-indigo-500 text-white px-2 py-1 rounded text-xs"
+                >Tourism Management</span
+              >
+            </div>
+            <a
+              href="details/spanish-business-universities.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Mexico - Business Innovation -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-green-600"
+          data-region="americas"
+        >
+          <div
+            class="bg-gradient-to-r from-green-600 via-white to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-mx fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">MEXICO</span>
+            </div>
+            <i class="fas fa-cactus text-4xl text-green-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Mexican Business Schools
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>ITESM - Tecnológico de
+                Monterrey
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>CETYS Universidad,
+                Ensenada
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Universidad TecMilenio,
+                Cancún
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Global Business</span
+              >
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs"
+                >Entrepreneurship</span
+              >
+              <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                >Supply Chain</span
+              >
+            </div>
+            <a
+              href="details/mexican-business-innovation.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Brazil - Emerging Markets -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-green-500"
+          data-region="americas"
+        >
+          <div
+            class="bg-gradient-to-r from-green-500 via-yellow-400 to-blue-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-br fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">BRAZIL</span>
+            </div>
+            <i class="fas fa-leaf text-4xl text-green-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Brazilian Business Universities
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>PUC Minas, Belo Horizonte
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>UNIVALI, Itajaí
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>UFMG, Belo Horizonte
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Emerging Markets</span
+              >
+              <span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs"
+                >Latin American Business</span
+              >
+              <span class="bg-teal-500 text-white px-2 py-1 rounded text-xs"
+                >Sustainability</span
+              >
+            </div>
+            <a
+              href="details/brazilian-emerging-markets.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Malaysia - Asian Business Hub -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-blue-800"
+          data-region="asia"
+        >
+          <div
+            class="bg-gradient-to-r from-blue-800 via-white to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-my fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">MALAYSIA</span>
+            </div>
+            <i class="fas fa-mosque text-4xl text-blue-800"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Malaysian Business Excellence
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Taylor's University,
+                Subang Jaya
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Asian Business</span
+              >
+              <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs"
+                >International Trade</span
+              >
+              <span class="bg-indigo-500 text-white px-2 py-1 rounded text-xs"
+                >Hospitality Management</span
+              >
+            </div>
+            <a
+              href="details/malaysian-asian-business-hub.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Belgium - European Business -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-yellow-400"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-black via-yellow-400 to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-be fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">BELGIUM</span>
+            </div>
+            <i class="fas fa-building text-4xl text-yellow-400"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Belgian Business Schools
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Artesis Plantijn
+                University College
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Thomas More Kempen
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Howest University College
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >European Business</span
+              >
+              <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                >Logistics</span
+              >
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs"
+                >International Relations</span
+              >
+            </div>
+            <a
+              href="details/belgian-business-schools.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Peru - South American Business -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-600"
+          data-region="americas"
+        >
+          <div
+            class="bg-gradient-to-r from-red-600 via-white to-red-600 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-pe fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">PERU</span>
+            </div>
+            <i class="fas fa-mountain text-4xl text-red-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Peruvian Business Leaders
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Universidad San Ignacio de
+                Loyola
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Universidad de Piura
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >South American Markets</span
+              >
+              <span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs"
+                >Mining Business</span
+              >
+              <span class="bg-teal-500 text-white px-2 py-1 rounded text-xs"
+                >Export Management</span
+              >
+            </div>
+            <a
+              href="details/peruvian-business-leaders.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Turkey - Bridge Between Continents -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-red-600"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-red-600 to-red-800 h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-tr fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">TURKEY</span>
+            </div>
+            <i class="fas fa-crescent-moon text-4xl text-white"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Turkish Business Universities
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Bahçeşehir University,
+                Istanbul
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Istanbul Aydın University
+              </p>
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>Anadolu University,
+                Eskişehir
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Cross-Cultural Business</span
+              >
+              <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs"
+                >Middle East Markets</span
+              >
+              <span class="bg-indigo-500 text-white px-2 py-1 rounded text-xs"
+                >International Commerce</span
+              >
+            </div>
+            <a
+              href="details/turkish-business-universities.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Greece - Mediterranean Business -->
+        <div
+          class="university-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col border-l-4 border-blue-600"
+          data-region="europe"
+        >
+          <div
+            class="bg-gradient-to-r from-blue-600 to-white h-32 flex items-center justify-center relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-white rounded-full px-3 py-1 flex items-center space-x-2"
+            >
+              <span
+                class="fi fi-gr fis"
+                style="width: 20px; height: 20px"
+              ></span>
+              <span class="text-sm font-bold text-gray-800">GREECE</span>
+            </div>
+            <i class="fas fa-columns text-4xl text-blue-600"></i>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-hz-blue mb-2">
+              Greek Business Education
+            </h3>
+            <div class="space-y-2 mb-4">
+              <p class="text-sm text-gray-600">
+                <i class="fas fa-university mr-2"></i>iCon College, Athens
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-hz-orange text-white px-2 py-1 rounded text-xs"
+                >Mediterranean Business</span
+              >
+              <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                >Shipping & Logistics</span
+              >
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs"
+                >Tourism Business</span
+              >
+            </div>
+            <a
+              href="details/greek-business-education.html"
+              class="w-full bg-hz-orange text-white py-2 rounded hover:bg-red-600 transition-colors mt-auto text-center block"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-hz-blue text-white py-12" id="contact">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+            <p class="mb-2">
+              <i class="fas fa-map-marker-alt mr-2"></i>Edisonweg 4, 4382 NW
+              Vlissingen
+            </p>
+            <p class="mb-2">
+              <i class="fas fa-phone mr-2"></i>+31 (0)118 489 000
+            </p>
+            <p><i class="fas fa-envelope mr-2"></i>info@hz.nl</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="index.html" class="hover:text-hz-orange">Home</a>
+              </li>
+              <li>
+                <a
+                  href="ict-partner-universities.html"
+                  class="hover:text-hz-orange"
+                  >ICT Programs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://hz.nl/en/study-programmes"
+                  class="hover:text-hz-orange"
+                  >Study Programmes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://hz.nl/en/study-information/studying-at-hz/international-focus"
+                  class="hover:text-hz-orange"
+                  >International Focus</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="text-2xl hover:text-hz-orange"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+          <p>
+            &copy; 2025 HZ University of Applied Sciences. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Search functionality
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const cards = document.querySelectorAll(".university-card");
+
+          cards.forEach((card) => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+
+      // Region filter
+      document
+        .getElementById("regionFilter")
+        .addEventListener("change", function (e) {
+          const selectedRegion = e.target.value;
+          const cards = document.querySelectorAll(".university-card");
+
+          cards.forEach((card) => {
+            if (
+              selectedRegion === "" ||
+              card.dataset.region === selectedRegion
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+
+      // Mobile menu toggle function
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
